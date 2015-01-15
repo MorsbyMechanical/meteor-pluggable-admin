@@ -1,0 +1,34 @@
+<template name='admin'>
+  <div class='container admin-layout Override'>
+    <div class='row fill'>
+      <div class='wrapper'>
+        {{> adminLeftMenu}}
+        {{> adminContent}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name='adminLayoutTemplate'>
+    {{> yield}}
+</template>
+
+<template name='adminLeftMenu'>
+  <div class='admin-left-menu col-md-3'>
+    <ul>
+      {{#if adminPackages}}
+        {{#each adminPackages}}
+        <li class='adminViewPackage'><span class="fa {{icon}} fa-fw"></span> {{displayName}}</li>
+        {{/each}}
+      {{else}}
+        <li>No Admin packages setup. Create one and add it to see something here!</li>
+      {{/if}}
+    </ul>
+  </div>
+</template>
+
+<template name='adminContent'>
+  <div class='admin-content col-md-9'>
+    {{> Template.dynamic template=adminViewTemplate}}
+  </div>
+</template>
