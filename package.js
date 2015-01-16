@@ -1,7 +1,8 @@
 Package.describe({
-  name: 'nikktto:admin-view',
-  summary: 'Nikktto pluggable administration.',
+  name: 'digilord:pluggable-admin-view',
+  summary: 'pluggable administration system',
   version: '1.0.0',
+  git: "https://github.com/morsbymechanical/meteor-pluggable-admin"
 });
 
 Package.onUse(function(api) {
