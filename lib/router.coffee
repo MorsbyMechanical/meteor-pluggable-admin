@@ -1,11 +1,10 @@
-adminSub = Meteor.subscribe 'adminViews'
+adminLayout = Meteor.settings.public.pluggableAdmin?.layout or 'adminLayoutTemplate'
+adminView = Meteor.settings.public.pluggableAdmin?.view or 'admin'
+
 
 Router.map ->
   @route 'admin',
     path: '/admin'
-    layoutTemplate: 'adminLayoutTemplate'
+    layoutTemplate: adminLayout
     action: ->
-      @wait adminSub
-      @render 'admin'
-    data: ->
-      return AdminViews.find({})
+      @render adminView

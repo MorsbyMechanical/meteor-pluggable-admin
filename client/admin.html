@@ -32,3 +32,59 @@
     {{> Template.dynamic template=adminViewTemplate}}
   </div>
 </template>
+
+<template name='ionicAdminContent'>
+    {{> Template.dynamic template=adminViewTemplate}}
+</template>
+
+<template name="ionicLeftPluggableAdminMenu">
+  <div class="bar bar-header bar-dark">
+    <h1 class="title">Admin Menu</h1>
+  </div>
+  <div class="content has-header">
+    <div class="list">
+      <a class="item item-icon-right" href='/' data-ion-menu-close>
+        Home {{> ionIcon icon="ios-home-outline"}}
+      </a>
+      {{#if isInRole 'admin'}}
+        {{#if adminPackages}}
+          {{#each adminPackages}}
+            <!--<li class='adminViewPackage'><span class="fa {{icon}} fa-fw"></span> {{displayName}}</li>-->
+            <a class="item item-icon-right adminViewPackage" data-ion-menu-close>
+              {{displayName}} {{> ionIcon icon=icon}}
+            </a>
+          {{/each}}
+        {{else}}
+          {{#ionItem}}No Admin packages setup.<br/>Create one and add it to<br/> see something here!{{/ionItem}}
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="ionicAdminTemplate">
+  {{#ionBody}}
+    {{#ionSideMenuContainer side="left"}}
+      {{#ionSideMenus}}
+        {{#ionSideMenu}}
+          {{> ionicLeftPluggableAdminMenu}}
+        {{/ionSideMenu}}
+      {{/ionSideMenus}}
+      {{#ionSideMenuContent}}
+        {{> ionNavBar class=barHeaderColor alignTitle='center'}}
+        {{#ionNavView}}
+          {{>notificationSubHeader}}
+          {{> ionicAdminContent}}
+        {{/ionNavView}}
+      {{/ionSideMenuContent}}
+    {{/ionSideMenuContainer}}
+  {{/ionBody}}
+</template>
+
+<template name="ionicAdminMenuItem">
+  {{#if isInRole 'admin'}}
+  <a class="item item-icon-right" href='/admin' data-ion-menu-close>
+    Administration {{> ionIcon icon="ios-cog-outline"}}
+  </a>
+  {{/if}}
+</template>

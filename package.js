@@ -7,7 +7,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
-  api.use(['meteor-platform@1.2.1', 'less@1.0.11']);
+  api.use(['meteor-platform', 'less@1.0.11']);
   api.use(['reactive-var@1.0.3'], ['client', 'server']);
   api.use(['iron:router@1.0.6'], ['client', 'server']);
   api.use(['mrt:moment@2.8.1'], ['client', 'server']);
@@ -15,6 +15,8 @@ Package.onUse(function(api) {
   api.use(['fortawesome:fontawesome@4.2.0_2'], ['client']);
   api.use(['coffeescript'], ['client', 'server']);
   api.use(['digilord:sugarjs@1.4.1'], ['client', 'server']);
+  api.use('meteoric:ionic-sass@0.1.8', 'client');
+  api.use('meteoric:ionicons-sass@0.1.5', 'client');
 
   api.addFiles([
     'collections/admin-view.coffee',
