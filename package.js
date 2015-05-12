@@ -1,7 +1,7 @@
 Package.describe({
   name: 'digilord:pluggable-admin-view',
   summary: 'pluggable administration system',
-  version: '1.0.1',
+  version: '1.0.2',
   git: "https://github.com/morsbymechanical/meteor-pluggable-admin"
 });
 
@@ -26,7 +26,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/publications.coffee'
     ], 'server');
-  
+
   api.addFiles([
     'lib/router.coffee',
     'client/admin.html',
