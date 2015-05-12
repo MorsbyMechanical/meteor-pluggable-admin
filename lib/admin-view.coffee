@@ -1,4 +1,4 @@
-AdminView = 
+AdminView =
   add: (doc) ->
     errors = []
     if not Object.isObject(doc)
@@ -7,7 +7,7 @@ AdminView =
     # Make sure the doc has all the right fields
 
     if not doc.moduleName?
-      error = 
+      error =
         type: 500
         msg: "No moduleName was passed into the insert. Please check your admin package definition."
       errors.push error
@@ -18,10 +18,10 @@ AdminView =
         msg: "moduleName should be a string."
 
     if not doc.template?
-      error = 
+      error =
         type: 500
         msg: "No template was defined for #{doc.moduleName}. Please check your admin package definition."
-    
+
     if doc.template? and not check(doc.template, String)
       error =
         type: 500
@@ -32,7 +32,7 @@ AdminView =
       displayName = doc.moduleName.spacify().capitalize(true)
       console.warn "Using #{displayName} from the string #{doc.moduleName} because a displayName was not specified."
       doc.displayName = displayName
-      
+
     if not doc.icon?
       console.warn "No icon was provided for #{doc.moduleName}. Using a default icon."
       doc.icon = "fa-cog"

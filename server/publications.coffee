@@ -1,8 +1,8 @@
 Meteor.publish 'adminViews', (options) ->
   # define some defaults here
   search = {}
-  defaultOptions = 
-    sort: 
+  defaultOptions =
+    sort:
       displayName: 1
 
   if Object.isObject options
@@ -15,4 +15,6 @@ Meteor.publish 'adminViews', (options) ->
   else
     options = defaultOptions
 
-  return AdminViews.find(search, options)
+  _docs = AdminViews.find(search, options)
+
+  return _docs
